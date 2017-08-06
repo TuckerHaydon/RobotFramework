@@ -14,6 +14,9 @@ Of course certain components of the software must know about the hardware. I des
 # Building This Project
 Cmake is used to build this project.
 
+# Configuring This Project
+A YAML config file in the 'config' directory is used to configure this project.
+
 # Dependencies
 * Cmake
 
