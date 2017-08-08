@@ -19,9 +19,10 @@ A YAML config file in the 'config' directory is used to configure this project.
 
 # Dependencies
 * Cmake
+* [yaml-cpp](https://github.com/jbeder/yaml-cpp)
 
 # Travis
-(Travis CI)[https://travis-ci.org] is used for continuous integration testing.
+[Travis CI](https://travis-ci.org) is used for continuous integration testing.
 
 # Coveralls
-(Coveralls)[https://coveralls.io] is used for continuous integration code coverage.
+[Coveralls](https://coveralls.io) is used for continuous integration code coverage.
