@@ -1,0 +1,13 @@
+language: cpp
+sudo: enabled
+dist: trusty
+
+install:
+  - which cmake || sudo apt-get install cmake
+
+script:
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make -j
+  - ./RobotFramework

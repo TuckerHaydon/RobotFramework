@@ -18,7 +18,7 @@ FILE(GLOB_RECURSE SRC_FILES src/*.cpp)
 # Compile Executable
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 
-## Sub-project
+## Sub-projects
 # YAML-cpp whatnot
 add_subdirectory(submodules/yaml-cpp)
 
