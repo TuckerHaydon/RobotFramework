@@ -1,13 +1,22 @@
 language: cpp
 sudo: enabled
 dist: trusty
+compiler: gcc
+
+before_install:
+  - pip install --user cpp-coveralls
 
 install:
   - which cmake || sudo apt-get install cmake
 
 script:
+  - ./configure --enable-gcov && make && make check
   - mkdir build
   - cd build
   - cmake ..
   - make -j
-  - ./RobotFramework
+  - cd tests
+  - ./test
+
+after_success:
+  - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
