@@ -20,21 +20,25 @@ public:
      * Returns a string identifier of the destination component.
      * @return String identified of destination component.
      */
-    std::string getDestination() {return this->destination;}
+    std::string getDestination() {return this->destination_;}
 
     // Forbid copying
-    IMessage(IMessage const &) = delete;
-    IMessage & operator=(IMessage const &) = delete;
+    IMessage(const IMessage&) = delete;
+    IMessage & operator=( const IMessage&) = delete;
 
 protected:
     /**
      * Constructor.
      * @param destination Unique string that identifies the component the message is destined for.
      */
-    IMessage(std::string destination) {this->destination = destination;}
+    IMessage(std::string destination) {this->destination_ = destination;}
 
     /**
      * String identifier of destination component.
      */
-    std::string destination;
+    std::string destination_;
 };
+
+IMessage::~IMessage() {
+    // Nothing
+}
