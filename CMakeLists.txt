@@ -1,4 +1,3 @@
-
 ## Project Setup
 cmake_minimum_required (VERSION 3.2)
 project (RobotFramework)
@@ -20,7 +19,7 @@ add_executable(${PROJECT_NAME} ${SRC_FILES})
 
 ## Sub-projects
 # YAML-cpp whatnot
-add_subdirectory(submodules/yaml-cpp)
+add_subdirectory(modules/yaml-cpp)
 
 # Unit testing
 add_subdirectory(test)
