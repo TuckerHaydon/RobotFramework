@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/TuckerHaydon/RobotFramework.svg?branch=master)](https://travis-ci.org/TuckerHaydon/RobotFramework)
-
+[![Build Status](https://travis-ci.org/TuckerHaydon/RobotFramework.svg?branch=master)](https://travis-ci.org/TuckerHaydon/RobotFramework) [![Coverage Status](https://coveralls.io/repos/github/TuckerHaydon/RobotFramework/badge.svg?branch=master)](https://coveralls.io/github/TuckerHaydon/RobotFramework?branch=master)
 # Goal
 The goal of this project is to create an object-oriented framework for a simple 2-wheel robot. The software should be abstracted away from and ignorant of the hardware. Furthermore, the sotware should be unit-tested as much as possible. The majority of this project will be completed in C++ 14 using modern C++ standards and functions.
 
