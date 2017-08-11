@@ -13,19 +13,19 @@ install:
 before_script:
   - export CXX=${COMPILER}
   - cd ${TRAVIS_BUILD_DIR}
-  - cmake -H. -BBuild -DCMAKE_BUILD_TYPE=Debug
-  - cd Build
+  - cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug
+  - cd build
 
 script:
   - make -j
   - make TestRobotFramework_coverage -j
 
 after_success:
-  # - cd ${TRAVIS_BUILD_DIR}
-  # - lcov --directory . --capture --output-file coverage.info # capture coverage info
-  # - lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter out system
-  # - lcov --remove coverage.info '/Applications/*' --output-file coverage.info # filter out system
-  # - lcov --remove coverage.info '*/catch.hpp' --output-file coverage.info
-  # - lcov --remove coverage.info '*/test/*' --output-file coverage.info
-  # - lcov --list coverage.info #debug info
-  # - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
+  - cd ${TRAVIS_BUILD_DIR}
+  - lcov --directory . --capture --output-file coverage.info # capture coverage info
+  - lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter out system
+  - lcov --remove coverage.info '/Applications/*' --output-file coverage.info # filter out system
+  - lcov --remove coverage.info '*/catch.hpp' --output-file coverage.info
+  - lcov --remove coverage.info '*/test/*' --output-file coverage.info
+  - lcov --list coverage.info #debug info
+  - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
