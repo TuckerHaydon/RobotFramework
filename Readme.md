@@ -2,6 +2,9 @@
 # Goal
 The goal of this project is to create an object-oriented framework for a simple 2-wheel robot. The software should be abstracted away from and ignorant of the hardware. Furthermore, the sotware should be unit-tested as much as possible. The majority of this project will be completed in C++ 14 using modern C++ standards and functions.
 
+# Authors
+The [original project](https://github.com/arthurlockman/wyatt) started as an independent study project at WPI. The main two developers were [Tucker Haydon](https://github.com/tuckerhaydon) and [Arthur Lockman](https://github.com/arthurlockman).
+
 # Supported Platforms
 * Raspbian for Raspi 3
 
