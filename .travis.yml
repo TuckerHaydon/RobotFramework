@@ -11,6 +11,8 @@ install:
   - which lcov || sudo apt-get install lcov
 
 before_script:
+  - g++ --version
+  - gcov --version
   - export CXX=${COMPILER}
   - cd ${TRAVIS_BUILD_DIR}
   - cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug
