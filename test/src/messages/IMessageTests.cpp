@@ -6,7 +6,6 @@
 #include "IMessage.h"
 
 const std::string mockDestination = "MOCK_DESTINATION";
-
 class MockMessage : public IMessage
 {
 public:

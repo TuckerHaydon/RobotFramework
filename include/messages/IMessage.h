@@ -12,11 +12,6 @@ class IMessage
 {
 public:
     /**
-     * Pure virtual destructor allowing polymorphic delete.
-     */
-    virtual ~IMessage() = 0;
-
-    /**
      * Returns a string identifier of the destination component.
      * @return String identified of destination component.
      */
@@ -38,7 +33,3 @@ protected:
      */
     std::string destination_;
 };
-
-IMessage::~IMessage() {
-    // Nothing
-}
