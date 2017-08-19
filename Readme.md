@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/TuckerHaydon/RobotFramework.svg?branch=master)](https://travis-ci.org/TuckerHaydon/RobotFramework) [![Coverage Status](https://coveralls.io/repos/github/TuckerHaydon/RobotFramework/badge.svg?branch=master)](https://coveralls.io/github/TuckerHaydon/RobotFramework?branch=master)
+[![Build Status](https://travis-ci.org/TuckerHaydon/RobotFramework.svg?branch=master)](https://travis-ci.org/TuckerHaydon/RobotFramework) [![Code Coverage](https://codecov.io/gh/TuckerHaydon/RobotFramework/branch/master/graph/badge.svg)](https://codecov.io/gh/TuckerHaydon/RobotFramework)
 # Goal
 The goal of this project is to create an object-oriented framework for a simple 2-wheel robot. The software should be abstracted away from and ignorant of the hardware. Furthermore, the sotware should be unit-tested as much as possible. The majority of this project will be completed in C++ 14 using modern C++ standards and functions.
 
@@ -34,4 +34,4 @@ A YAML config file in the 'config' directory is used to configure this project.
 [Travis CI](https://travis-ci.org) is used for continuous integration testing.
 
 # Coveralls
-[Coveralls](https://coveralls.io) is used for continuous integration code coverage.
+[Codecov](https://codecov.io) is used for continuous integration code coverage.

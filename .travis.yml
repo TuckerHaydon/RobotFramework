@@ -3,25 +3,23 @@ sudo: enabled
 dist: trusty
 compiler: g++
 
-before_install:
-  - pip install --user cpp-coveralls
-
 install:
   - which cmake || sudo apt-get install cmake
   - which lcov || sudo apt-get install lcov
 
 before_script:
-  - g++ --version
-  - gcov --version
   - export CXX=${COMPILER}
+
+script:
   - cd ${TRAVIS_BUILD_DIR}
   - cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug
   - cd build
-
-script:
   - make -j
-  - make TestRobotFramework_coverage -j
 
 after_success:
   - cd ${TRAVIS_BUILD_DIR}
-  - coveralls --exclude modules --exclude build --exclude test --gcov-options '\-lp'
+  - ./build/test/TestRobotFramework
+  - lcov --capture --directory . --output-file coverage.info --no-external
+  - lcov --remove coverage.info '*/test/*' --output-file coverage.info
+  - lcov --list coverage.info
+  - bash <(curl -s https://codecov.io/bash) -X gcov || echo 'Codecov failed to upload'
