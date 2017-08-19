@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <string>
+
 /*
  * IMessage is an interface that should be implemented by all messages being passed between components in the system.
  * Messages are required to specify their destination so the CommunicationBus can pass the message along.

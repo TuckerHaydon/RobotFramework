@@ -12,10 +12,6 @@ public:
     MockMessage(std::string destination) : IMessage(destination) {
         // Nothing
     }
-
-    ~MockMessage() {
-        // Nothing
-    }
 };
 
 TEST_CASE( "Constructor successfully passes destination", "[IMessage]" ) {
