@@ -17,7 +17,9 @@ ENDFOREACH()
 
 # Make test executable
 file(GLOB_RECURSE TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
-add_executable(${PROJECT_NAME} ${TEST_SOURCES})
+file(GLOB_RECURSE CODE_SOURCES ${CMAKE_SOURCE_DIR}/src/*.cpp)
+list(REMOVE_ITEM CODE_SOURCES ${CMAKE_SOURCE_DIR}/src/main.cpp)
+add_executable(${PROJECT_NAME} ${TEST_SOURCES} ${CODE_SOURCES})
 target_link_libraries(${PROJECT_NAME} Catch)
 
 # Coveralls Setup
