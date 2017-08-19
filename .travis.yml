@@ -22,4 +22,4 @@ script:
 
 after_success:
   - cd ${TRAVIS_BUILD_DIR}
-  - coveralls --exclude modules --exclude test --exclude build --gcov-options '\-lp'
+  - coveralls --exclude modules --exclude build --gcov-options '\-lp'
