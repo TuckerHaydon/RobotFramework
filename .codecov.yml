@@ -26,8 +26,5 @@ comment:
   require_changes: no
 
 ignore:
-  - "*/test/*"
-  - "*/test"
-  - "test/*"
-  - "test/"
-  - "test"
+  - "/usr"
+  - "/home/travis/build/TuckerHaydon/RobotFramework/test"
