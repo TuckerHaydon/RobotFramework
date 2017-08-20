@@ -19,7 +19,7 @@ script:
 after_success:
   - cd ${TRAVIS_BUILD_DIR}
   - ./build/test/TestRobotFramework
-  - lcov --directory . -b . --capture --output-file coverage.info --no-external
-  - lcov --remove coverage.info 'test/*' --output-file coverage.info
+  - lcov --capture --directory . --base-directory ${TRAVIS_BUILD_DIR} --output-file coverage.info --no-external
+  - lcov --remove coverage.info $(TRAVIS_BUILD_DIR)'test/*' --output-file coverage.info
   - lcov --list coverage.info
   - bash <(curl -s https://codecov.io/bash)
