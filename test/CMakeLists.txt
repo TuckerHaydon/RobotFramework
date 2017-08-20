@@ -22,13 +22,5 @@ list(REMOVE_ITEM CODE_SOURCES ${CMAKE_SOURCE_DIR}/src/main.cpp)
 add_executable(${PROJECT_NAME} ${TEST_SOURCES} ${CODE_SOURCES})
 target_link_libraries(${PROJECT_NAME} Catch)
 
-# Coveralls Setup
-set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/modules/code-coverage)
-include(CodeCoverage)
-SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
-SET(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
-setup_target_for_coverage(
-        NAME ${PROJECT_NAME}_coverage
-        EXECUTABLE ${PROJECT_NAME}
-        DEPENDENCIES ${PROJECT_NAME}
-)
+set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS "-g -O0 --coverage -fprofile-arcs -ftest-coverage")
+set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "--coverage")
