@@ -24,9 +24,10 @@ protected:
         return true;
     }
 
-    bool do_get(const std::shared_ptr<void*> &returnData) override {
+    bool do_get(const std::shared_ptr<std::shared_ptr<void>> &returnData) override {
         do_get_function_called = true;
-        // (*returnData) = static_cast<void*>(&data_);
+        // Temporarily copies data to the heap
+        // (*returnData) = std::make_shared<SensorDataType>(data_);
         return true;
     }
 

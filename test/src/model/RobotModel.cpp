@@ -19,7 +19,7 @@ protected:
         return true;
     }
 
-    bool do_get(const std::shared_ptr<void*> &returnData) override {
+    bool do_get(const std::shared_ptr<std::shared_ptr<void>> &returnData) override {
         return true;
     }
 };

@@ -14,6 +14,6 @@ bool SensorModel::update(const std::shared_ptr<void> &data) {
     return do_update(data);
 }
 
-bool SensorModel::get(const std::shared_ptr<void*> &returnData) {
+bool SensorModel::get(const std::shared_ptr<std::shared_ptr<void>> &returnData) {
     return do_get(returnData);
 }

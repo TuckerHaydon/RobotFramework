@@ -32,7 +32,7 @@ public:
      * @param returnData Shared void* pointer where the data should be written to.
      * @return Whether or not the data was successfully returned.
      */
-    bool get(const std::shared_ptr<void*> &returnData);
+    bool get(const std::shared_ptr<std::shared_ptr<void>> &returnData);
 
 protected:
     /**
@@ -47,7 +47,7 @@ protected:
      * @param returnData Shared void* pointer where the data should be written to.
      * @return Whether or not the data was successfully returned.
      */
-    virtual bool do_get(const std::shared_ptr<void*> &returnData) = 0;
+    virtual bool do_get(const std::shared_ptr<std::shared_ptr<void>> &returnData) = 0;
 
     /**
      * Hardware ID associated with the sensor.
