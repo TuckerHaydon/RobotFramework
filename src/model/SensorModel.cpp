@@ -10,10 +10,14 @@ SensorModel::SensorModel(const HardwareID &ID)
 
 }
 
-bool SensorModel::update(const std::shared_ptr<void> &data) {
+bool SensorModel::update(const std::shared_ptr<void> data) {
     return do_update(data);
 }
 
-bool SensorModel::get(const std::shared_ptr<std::shared_ptr<void>> &returnData) {
+bool SensorModel::get(const std::shared_ptr<std::shared_ptr<void>> returnData) const {
     return do_get(returnData);
+}
+
+HardwareID SensorModel::getID() const {
+    return this->ID_;
 }

@@ -15,11 +15,11 @@ public:
     MockSensorModel(const HardwareID &ID) : SensorModel(ID) {}
 
 protected:
-    bool do_update(const std::shared_ptr<void> &data) override {
+    bool do_update(const std::shared_ptr<void> data) override {
         return true;
     }
 
-    bool do_get(const std::shared_ptr<std::shared_ptr<void>> &returnData) override {
+    bool do_get(const std::shared_ptr<std::shared_ptr<void>> returnData) const override {
         return true;
     }
 };

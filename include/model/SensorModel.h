@@ -9,7 +9,7 @@
 
 /**
  * Interface for various sensor models. Models cache the most recent sensor data and make it available for other system functions to access it immediately.
- * Data is passed and requested using void pointers due to template and polymorphic limits of the compiler and runtime environments.
+ * Data is passed and requested using void pointers due to template and polymorphic limits of the compiler and runtime environments. Type Erasure.
  */
 class SensorModel {
 public:
@@ -25,14 +25,20 @@ public:
      * @param data Incoming data. Passed as a shared void* pointer. Should be cast for interpretation.
      * @return Whether or not the data was successfully cached.
      */
-    bool update(const std::shared_ptr<void> &data);
+    bool update(const std::shared_ptr<void> data);
 
     /**
      * Returns the cached data to a shared void* pointer.
-     * @param returnData Shared void* pointer where the data should be written to.
+     * @param returnData type-erased pointer where the data should be written to.
      * @return Whether or not the data was successfully returned.
      */
-    bool get(const std::shared_ptr<std::shared_ptr<void>> &returnData);
+    bool get(const std::shared_ptr<std::shared_ptr<void>> returnData) const;
+
+    /**
+    * Returns the hardware ID
+    * @return
+    */
+    HardwareID getID() const;
 
 protected:
     /**
@@ -40,14 +46,14 @@ protected:
     * @param data Incoming data. Passed as a shared void* pointer. Should be cast for interpretation.
     * @return Whether or not the data was successfully cached.
     */
-    virtual bool do_update(const std::shared_ptr<void> &data) = 0;
+    virtual bool do_update(const std::shared_ptr<void> data) = 0;
 
     /**
      * Performs the public get function.
      * @param returnData Shared void* pointer where the data should be written to.
      * @return Whether or not the data was successfully returned.
      */
-    virtual bool do_get(const std::shared_ptr<std::shared_ptr<void>> &returnData) = 0;
+    virtual bool do_get(const std::shared_ptr<std::shared_ptr<void>> returnData) const = 0;
 
     /**
      * Hardware ID associated with the sensor.

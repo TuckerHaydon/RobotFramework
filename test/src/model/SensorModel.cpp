@@ -15,19 +15,16 @@ public:
 
     }
 
-    bool do_update_function_called{false}, do_get_function_called{false};
+    mutable bool do_update_function_called{false}, do_get_function_called{false};
 
 protected:
-    bool do_update(const std::shared_ptr<void> &data) override {
+    bool do_update(const std::shared_ptr<void> data) override {
         do_update_function_called = true;
-        // this->data_ = *(static_cast<SensorDataType*>(data.get()));
         return true;
     }
 
-    bool do_get(const std::shared_ptr<std::shared_ptr<void>> &returnData) override {
+    bool do_get(const std::shared_ptr<std::shared_ptr<void>> returnData) const override {
         do_get_function_called = true;
-        // Temporarily copies data to the heap
-        // (*returnData) = std::make_shared<SensorDataType>(data_);
         return true;
     }
 
@@ -35,14 +32,19 @@ private:
     SensorDataType data_;
 };
 
-TEST_CASE( "Calling to update function calls the do_update function", "[RobotModel]" ) {
+TEST_CASE( "Calling to update function calls the do_update function", "[SensorModel]" ) {
     MockSensorModel<uint8_t> sensorModel{MOCK_ID};
     sensorModel.update(NULL);
     REQUIRE(sensorModel.do_update_function_called == true);
 }
 
-TEST_CASE( "Calling the get function calls the do_get function", "[RobotModel]" ) {
+TEST_CASE( "Calling the get function calls the do_get function", "[SensorModel]" ) {
     MockSensorModel<uint8_t> sensorModel{MOCK_ID};
     sensorModel.get(NULL);
     REQUIRE(sensorModel.do_get_function_called == true);
+}
+
+TEST_CASE( "Hardware ID is properly stored", "[SensorModel]" ) {
+    MockSensorModel<uint8_t> sensorModel{MOCK_ID};
+    REQUIRE(sensorModel.getID() == MOCK_ID);
 }
