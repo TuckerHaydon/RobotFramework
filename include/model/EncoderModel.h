@@ -6,6 +6,7 @@
 
 #include "SensorModel.h"
 #include <limits>
+#include <atomic>
 
 /**
  * Model class for an encoder sensor. Stores wheel speed in cm/s. Positive wheel speed indicates forward movement of wheel, negative the opposite.
