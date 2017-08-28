@@ -28,4 +28,8 @@ bool HardwareID::operator !=(const HardwareID &other) const {
     return !((*this)==other);
 }
 
+bool HardwareID::operator <(const HardwareID &other) const {
+    return this->ID_ < other.ID_;
+}
+
 const uint16_t HardwareID::NULL_ID{0};

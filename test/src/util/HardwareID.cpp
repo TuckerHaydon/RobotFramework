@@ -29,3 +29,17 @@ TEST_CASE( "Two IDs with different initializers ID are not equivalent", "[Hardwa
     REQUIRE(id1 != id2);
     REQUIRE(!(id1 == id2));
 }
+
+TEST_CASE( "Two equivalent IDs -> Neither are less than", "[HardwareID]" ) {
+    const uint16_t MOCK_ID = 10;
+    HardwareID id{MOCK_ID};
+    REQUIRE(!(id < id));
+}
+
+TEST_CASE( "HardwareID less than equivalence works", "[HardwareID]" ) {
+    const uint16_t MOCK_ID_1 = 10;
+    const uint16_t MOCK_ID_2 = 20;
+    HardwareID id1{MOCK_ID_1}, id2{MOCK_ID_2};
+    REQUIRE(id1 < id2);
+    REQUIRE(!(id2 < id1));
+}

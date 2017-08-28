@@ -29,18 +29,25 @@ public:
     bool isNull();
 
     /**
-     * Comparision operator. Checks that the internal IDs are equivalent.
+     * Equality operator. Checks that the internal IDs are equivalent.
      * @param other A different ID to compare to.
      * @return Whether or not this ID is equivalent to another.
      */
     bool operator ==(const HardwareID &other) const;
 
     /**
-    * Comparision operator. Checks that the internal IDs are not equivalent.
+    * Inequality operator. Checks that the internal IDs are not equivalent.
     * @param other A different ID to compare to.
     * @return Whether or not this ID is not equivalent to another.
     */
     bool operator !=(const HardwareID &other) const;
+
+    /**
+    * Comparision operator. Checks that the internal IDs are equivalent.
+    * @param other A different ID to compare to.
+    * @return Whether or not this ID is equivalent to another.
+    */
+    bool operator <(const HardwareID &other) const;
 
     /**
     * Null ID constant

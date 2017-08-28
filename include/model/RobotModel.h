@@ -16,12 +16,13 @@
 class RobotModel {
 public:
     /**
-     * Updates the model with a new component. Adds the id and component to the map, model.
+     * Updates the model with a new SensorModel. Adds the id and SensorModel to the map. If the sensor model has
+     * already been attached, return false.
      * @param id Hardware ID of the component
      * @param component SensorModel pointer to add
      * @return true if successful, false if any error occurred.
      */
-    bool updateModel(const HardwareID &id, const std::shared_ptr<SensorModel> &component);
+    bool updateModel(const HardwareID &id, const std::shared_ptr<SensorModel> sensorModel);
 
     /**
      * Updates a sensor model object with the most recent sensor data
@@ -29,7 +30,7 @@ public:
      * @param data The data from the sensor
      * @return true if successful, false if any error occurred.
      */
-    bool updateSensorData(const HardwareID &id, const std::shared_ptr<void> &data);
+    bool updateSensorData(const HardwareID &id, const std::shared_ptr<void> data) const;
 
     /**
      * Gets the cached sensor data
@@ -37,7 +38,7 @@ public:
      * @param returnData Data object to be filled with the sensor data
      * @return true if successful, false if any error occurred.
      */
-    bool getSensorData(const HardwareID &id, const std::shared_ptr<void> &returnData);
+    bool getSensorData(const HardwareID &id, const std::shared_ptr<std::shared_ptr<void>> returnData) const;
 
 private:
     /**
