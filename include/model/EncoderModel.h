@@ -4,14 +4,12 @@
 
 #pragma once
 
-#include "SensorModel.h"
-#include <limits>
-#include <atomic>
+#include "GenericSensorModel.h"
 
 /**
  * Model class for an encoder sensor. Stores wheel speed in cm/s. Positive wheel speed indicates forward movement of wheel, negative the opposite.
  */
-class EncoderModel : public SensorModel {
+class EncoderModel : public GenericSensorModel<double> {
 public:
     /**
      * Constructor.
@@ -24,21 +22,4 @@ public:
     * @return The current wheel speed
     */
     double getWheelSpeed_cm_per_s() const;
-
-protected:
-    /**
-     * @inheritDoc See superclass
-     */
-    bool do_update(const std::shared_ptr<void> data) override;
-
-    /**
-     * @inheritDoc See superclass
-     */
-    bool do_get(const std::shared_ptr<std::shared_ptr<void>> returnData) const override;
-
-private:
-    /**
-     * Model data. Stored as a double representing the wheel speed in cm/s
-     */
-    std::atomic<double> wheelSpeed_{std::numeric_limits<double>::infinity()};
 };
