@@ -33,5 +33,5 @@ A YAML config file in the 'config' directory is used to configure this project.
 # Travis
 [Travis CI](https://travis-ci.org) is used for continuous integration testing.
 
-# Coveralls
+# Codecov
 [Codecov](https://codecov.io) is used for continuous integration code coverage.
