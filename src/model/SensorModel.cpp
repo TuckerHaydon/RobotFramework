@@ -2,22 +2,22 @@
  * Created by Tucker Haydon on 8/25/17. 
  */
 
-#include "SensorModel.h"
+#include "ISensorModel.h"
 
-SensorModel::SensorModel(const HardwareID &ID)
+ISensorModel::ISensorModel(const HardwareID &ID)
         : ID_{ID}
 {
 
 }
 
-bool SensorModel::update(const std::shared_ptr<void> data) {
+bool ISensorModel::update(const std::shared_ptr<void> data) {
     return do_update(data);
 }
 
-bool SensorModel::get(const std::shared_ptr<std::shared_ptr<void>> returnData) const {
+bool ISensorModel::get(const std::shared_ptr<std::shared_ptr<void>> returnData) const {
     return do_get(returnData);
 }
 
-HardwareID SensorModel::getID() const {
+HardwareID ISensorModel::getID() const {
     return this->ID_;
 }

@@ -4,7 +4,7 @@
 
 #include "RobotModel.h"
 
-bool RobotModel::updateModel(const HardwareID &id, const std::shared_ptr <SensorModel> sensorModel) {
+bool RobotModel::updateModel(const HardwareID &id, const std::shared_ptr <ISensorModel> sensorModel) {
     // Prevent insertion of null HardwareID or duplicate
     if(this->model_.find(id) != this->model_.end() || id == HardwareID(HardwareID::NULL_ID)) {
         // TODO Log the error.

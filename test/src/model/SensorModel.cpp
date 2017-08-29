@@ -3,15 +3,15 @@
  */
 
 #include "catch.hpp"
-#include "SensorModel.h"
+#include "ISensorModel.h"
 
 const HardwareID MOCK_ID{1};
 const uint8_t MOCK_SENSOR_DATA{12};
 
 template <class SensorDataType>
-class MockSensorModel : public SensorModel {
+class MockISensorModel : public ISensorModel {
 public:
-    MockSensorModel(const HardwareID &ID) : SensorModel(ID) {
+    MockISensorModel(const HardwareID &ID) : ISensorModel(ID) {
 
     }
 
@@ -32,19 +32,19 @@ private:
     SensorDataType data_;
 };
 
-TEST_CASE( "Calling to update function calls the do_update function", "[SensorModel]" ) {
-    MockSensorModel<uint8_t> sensorModel{MOCK_ID};
+TEST_CASE( "Calling to update function calls the do_update function", "[ISensorModel]" ) {
+    MockISensorModel<uint8_t> sensorModel{MOCK_ID};
     sensorModel.update(NULL);
     REQUIRE(sensorModel.do_update_function_called == true);
 }
 
-TEST_CASE( "Calling the get function calls the do_get function", "[SensorModel]" ) {
-    MockSensorModel<uint8_t> sensorModel{MOCK_ID};
+TEST_CASE( "Calling the get function calls the do_get function", "[ISensorModel]" ) {
+    MockISensorModel<uint8_t> sensorModel{MOCK_ID};
     sensorModel.get(NULL);
     REQUIRE(sensorModel.do_get_function_called == true);
 }
 
-TEST_CASE( "Hardware ID is properly stored", "[SensorModel]" ) {
-    MockSensorModel<uint8_t> sensorModel{MOCK_ID};
+TEST_CASE( "Hardware ID is properly stored", "[ISensorModel]" ) {
+    MockISensorModel<uint8_t> sensorModel{MOCK_ID};
     REQUIRE(sensorModel.getID() == MOCK_ID);
 }

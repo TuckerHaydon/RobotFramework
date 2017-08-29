@@ -3,7 +3,7 @@
  */
 
 #pragma once
-#include "SensorModel.h"
+#include "ISensorModel.h"
 #include "HardwareID.h"
 #include <atomic>
 
@@ -12,13 +12,13 @@
  * @tparam SensorDataType Type of data returned by a sensor.
  */
 template <class SensorDataType>
-class GenericSensorModel : public SensorModel {
+class GenericSensorModel : public ISensorModel {
 public:
     /**
     * Constructor.
     * @param ID Identifier that matches this model object to the actual sensor.
     */
-    GenericSensorModel(const HardwareID &ID) : SensorModel(ID) {
+    GenericSensorModel(const HardwareID &ID) : ISensorModel(ID) {
 
     };
 

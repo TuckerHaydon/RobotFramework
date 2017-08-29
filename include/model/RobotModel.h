@@ -6,7 +6,7 @@
 
 #include <map>
 #include "HardwareID.h"
-#include "SensorModel.h"
+#include "ISensorModel.h"
 
 /**
  * Interface to store and access the most recent sensor data in a thread-safe, non-blocking manner.
@@ -16,13 +16,13 @@
 class RobotModel {
 public:
     /**
-     * Updates the model with a new SensorModel. Adds the id and SensorModel to the map. If the sensor model has
+     * Updates the model with a new ISensorModel. Adds the id and ISensorModel to the map. If the sensor model has
      * already been attached, return false.
      * @param id Hardware ID of the component
-     * @param component SensorModel pointer to add
+     * @param component ISensorModel pointer to add
      * @return true if successful, false if any error occurred.
      */
-    bool updateModel(const HardwareID &id, const std::shared_ptr<SensorModel> sensorModel);
+    bool updateModel(const HardwareID &id, const std::shared_ptr<ISensorModel> sensorModel);
 
     /**
      * Updates a sensor model object with the most recent sensor data
@@ -42,7 +42,7 @@ public:
 
 private:
     /**
-     * Map from HardwareID to SensorModel pointers
+     * Map from HardwareID to ISensorModel pointers
      */
-    std::map<HardwareID, std::shared_ptr<SensorModel>> model_;
+    std::map<HardwareID, std::shared_ptr<ISensorModel>> model_;
 };

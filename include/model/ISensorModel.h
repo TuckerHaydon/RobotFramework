@@ -11,14 +11,14 @@
  * Interface for various sensor models. Models cache the most recent sensor data and make it available for other system functions to access it immediately.
  * Data is passed and requested using void pointers due to template and polymorphic limits of the compiler and runtime environments. Type Erasure.
  */
-class SensorModel {
+class ISensorModel {
 public:
 
     /**
      * Constructor.
      * @param ID ID that should be identical to the sensor's ID
      */
-    SensorModel(const HardwareID &ID);
+    ISensorModel(const HardwareID &ID);
 
     /**
      * Updates the sensor model with the most recent sensor data

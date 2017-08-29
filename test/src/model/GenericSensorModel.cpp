@@ -12,7 +12,7 @@ const uint8_t MOCK_SENSOR_DATA{12};
 TEST_CASE( "Constructor polymorphically stores HardwareID", "[EncoderModel]" ) {
     GenericSensorModel<uint8_t> *model = new GenericSensorModel<uint8_t>(MOCK_ID);
     REQUIRE(model->getID() == MOCK_ID);
-    REQUIRE(((SensorModel*)model)->getID() == MOCK_ID);
+    REQUIRE(((ISensorModel*)model)->getID() == MOCK_ID);
 }
 
 TEST_CASE( "Data injected and retrieved correctly from generic sensor", "[GenericSensorModel]" ) {
@@ -23,11 +23,11 @@ TEST_CASE( "Data injected and retrieved correctly from generic sensor", "[Generi
     REQUIRE(*static_cast<uint8_t *>((*ptr.get()).get()) == MOCK_SENSOR_DATA);
 }
 
-TEST_CASE( "Generic sensor can be inserted into a STL container for SensorModels", "[GenericSensorModel]" ) {
-    SensorModel *model = new GenericSensorModel<uint8_t>(MOCK_ID);
-    std::shared_ptr<SensorModel> ptr = std::shared_ptr<SensorModel>(model);
+TEST_CASE( "Generic sensor can be inserted into a STL container for ISensorModels", "[GenericSensorModel]" ) {
+    ISensorModel *model = new GenericSensorModel<uint8_t>(MOCK_ID);
+    std::shared_ptr<ISensorModel> ptr = std::shared_ptr<ISensorModel>(model);
 
-    std::vector<std::shared_ptr<SensorModel>> models;
+    std::vector<std::shared_ptr<ISensorModel>> models;
     models.push_back(ptr);
 
     std::shared_ptr<uint8_t> updateValue = std::make_shared<uint8_t>(MOCK_SENSOR_DATA);
